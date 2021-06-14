@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './components/home/index';
+import Home from './components/Home/index';
 import store from './redux/Store/Store';
 import { Provider } from 'react-redux';
 function App() {

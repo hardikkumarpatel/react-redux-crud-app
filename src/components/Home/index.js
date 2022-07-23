@@ -37,6 +37,7 @@ const rows = [
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [filterData, setFilterData] = useState(false);
   const profileDetailsList = useSelector(
     (state) => state.Reducer.profileDetailsList
   );
@@ -44,6 +45,14 @@ const Home = () => {
   const handleCloseDeleteDialog = () => {
     setIsOpen(false);
   };
+  const handleOpenDialog = () => {
+    setIsOpen(true);
+  };
+  const gettingPropsTableData = (id) => {
+    const filterData = profileDetailsList.find((res) => res.id === id);
+    setFilterData(filterData)
+  }
+
   return (
     <RootDivComponent>
       <DivCompoennt>Made in Redux with ❤️ React.</DivCompoennt>
@@ -59,6 +68,8 @@ const Home = () => {
       <TableDivComponent>
         <TableWrapper
         headerRows={rows}
+        onOpen={handleOpenDialog}
+        OnParentCallBack={gettingPropsTableData}
         bodyRows={profileDetailsList}
          />
       </TableDivComponent>
@@ -67,6 +78,7 @@ const Home = () => {
         disableEscapeKeyDown
         open={isOpen}
         onClose={handleCloseDeleteDialog}
+        OnFilteredData={filterData}
         maxWidth='md'
         aria-labelledby='form-dialog-title'
       />

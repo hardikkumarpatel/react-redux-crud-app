@@ -49,7 +49,7 @@ const DialogWrapper = (props) => {
                   label='FirstName'
                   type='text'
                   fullWidth
-                  value={firstName}
+                  value={firstName || props.OnFilteredData.firstname}
                   onChange={(event) => {
                     setFirstName(event.target.value);
                   }}
@@ -63,7 +63,7 @@ const DialogWrapper = (props) => {
                   label='LastName'
                   type='text'
                   fullWidth
-                  value={lastName}
+                  value={lastName || props.OnFilteredData.lastname}
                   onChange={(event) => {
                     setLastName(event.target.value);
                   }}
@@ -77,7 +77,7 @@ const DialogWrapper = (props) => {
                   label='Desigination'
                   type='text'
                   fullWidth
-                  value={desigination}
+                  value={desigination || props.OnFilteredData.desigination}
                   onChange={(event) => {
                     setDesigination(event.target.value);
                   }}
